@@ -1,0 +1,44 @@
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<div class="container">
+
+    <header>
+        <a href="#" class="logo">Voided</a>
+
+        <nav>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2621168/menu.svg" alt="menu">
+        </nav>
+    </header>
+
+    <h1 class="lax" data-lax-translate-y="0 0, 400 -400">Parallax Desktop Example</h1>
+    <div class="line lax" data-lax-opacity="0 1, 100 0"></div>
+
+</div>
+
+<div class="container secondary lax" data-lax-translate-y="0 0, 400 -600" data-lax-opacity="0 0, 300 1">
+    <h2>Test</h2>
+    <p class="subtext">Webpage</p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur excepturi saepe vero, delectus cum nulla consequuntur qui illum minus vel architecto officiis sunt totam similique pariatur culpa eligendi repudiandae inventore.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur excepturi saepe vero, delectus cum nulla consequuntur qui illum minus vel architecto officiis sunt totam similique pariatur culpa eligendi repudiandae inventore.</p>
+</div>  
+
+<img src="images/mountainValley.jpg" height="1080px" alt="Mountains" class="mountains lax" data-lax-translate-y="0 1, 400 -100">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lax.js"></script>
+
+<script>
+    
+    window.onload = function() {
+            lax.setup() // init
+
+            const updateLax = () => {
+                lax.update(window.scrollY)
+                window.requestAnimationFrame(updateLax)
+            }
+
+            window.requestAnimationFrame(updateLax)
+        }
+</script>

@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css?family=Nobile:400,700&display=swap");
+body {
+  margin: 0;
+  height: 100vh;
+  background: #191919;
+  font-family: "Nobile";
+  overflow-x: hidden;
+}
+*, *:before {
+  box-sizing: border-box;
+}
+.container {
+  padding: 2em;
+  height: 2000px;
+}
+.container:first-child {
+  display: grid;
+  grid-template-rows: 10% 30% auto;
+}
+.container h1 {
+  text-align: center;
+  margin-top: 4em;
+  font-weight: normal;
+  font-size: 3em;
+  line-height: 0.9em;
+  color: white;
+  font-weight: lighter;
+}
+.container p {
+  line-height: 1.5em;
+  color: #c2c2c2;
+}
+.container .line {
+  align-self: end;
+  width: 50%;
+  border-right: 1px solid white;
+  height: 50%;
+  margin-bottom: 4em;
+  position: relative;
+}
+.container .line::after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 11px 11px 0 11px;
+  border-color: white transparent transparent transparent;
+  right: -0.7em;
+  bottom: -2px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+h2 {
+  color: white;
+  font-size: 3em;
+  margin: 0;
+  font-weight: normal;
+}
+.subtext {
+  margin-top: 0;
+  font-size: 1.4em;
+  text-transform: uppercase;
+}
+.secondary {
+  margin-top: -40em;
+}
+.mountains, .trees, .grass {
+  position: absolute;
+  z-index: -1;
+  width: 1920px;
+}
+.mountains {
+  top: 100px;
+  -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+.trees {
+  top: 0;
+  height: 1080px;
+  -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+.grass{
+  top: 0px;
+  height: 1080px;
+  -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+@media only screen and (min-width: 665px) {
+  .mountains {
+    top: 100px;
+  }
+  .trees {
+    top: 0;
+  }
+  .grass{
+    top: 0px;
+  }
+}
+@media only screen and (min-width: 930px) {
+  .mountains {
+    top: 100px;
+  }
+  .trees {
+    top: 0%;
+  }
+  .grass{
+    top: 0px;
+  }
+}
+@media only screen and (min-width: 1050px) {
+  .mountains {
+    top: 0%;
+  }
+  .trees {
+    top: 0%;
+  }
+  .grass{
+    top: 0px;
+  }
+}
