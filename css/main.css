@@ -51,7 +51,7 @@ body {
 }
 header {
     position: absolute;
-    top: -250px;
+    top: 50px;
     left: 65px;
   justify-content: space-between;
 }
