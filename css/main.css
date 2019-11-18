@@ -19,7 +19,7 @@ body {
 }
 .container h1 {
   text-align: center;
-  margin-top: 4.5em;
+  margin-top: 4em;
   font-weight: normal;
   font-size: 3em;
   line-height: 0.9em;
@@ -81,14 +81,14 @@ h2 {
   width: 1920px;
 }
 .Space {
-  top: 100px;
+  top: 0px;
   -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
       mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 
 @media only screen and (min-width: 665px) {
   .Space {
-    top: 100px;
+    top: 0px;
   }
   .trees {
     top: 0;
@@ -99,7 +99,7 @@ h2 {
 }
 @media only screen and (min-width: 930px) {
   .Space {
-    top: 100px;
+    top: 0px;
   }
   .trees {
     top: 0%;
