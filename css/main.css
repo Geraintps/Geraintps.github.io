@@ -150,4 +150,12 @@ input {
   width: 620px;
   height: 375px;
   box-shadow: 0px 0px 25px;
+  left: 150px;
+}
+#twitchChat{
+  position: relative;
+  width: 350px;
+  box-shadow: 0px 0px 25px;
+  left: 850px;
+  top: -375px;
 }
