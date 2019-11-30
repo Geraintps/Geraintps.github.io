@@ -60,7 +60,7 @@ body:after {
   width: 100%;
 }
 body.open {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 body.open:after {
   opacity: 0;
