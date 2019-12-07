@@ -78,7 +78,7 @@ h2 {
 .Space, .trees, .grass {
   position: absolute;
   z-index: -1;
-  width: 1920px;
+  width: 100%;
 }
 .Space {
   top: 0px;
