@@ -46,7 +46,7 @@
   box-sizing: border-box;
 }
 
-body:after {
+/* body:after {
   background: white;
   content: "";
   height: 100%;
@@ -58,7 +58,7 @@ body:after {
   top: 0;
   transition: all 0.4s ease;
   width: 100%;
-}
+} */
 body.open {
   overflow-x: hidden;
 }
