@@ -67,8 +67,11 @@ $(document).ready(function () {
         return users.filter((char) => char.fullname.toLowerCase().indexOf(pattern.toLowerCase()) !== -1);
       };
 
-      editor.on('keyup', (e) => {
-        alert(e.code);
+      // editor.on('keyup', (e) => {
+      //   alert(e.code);
+      // });
+      editor.on('input', (e) => {
+        alert(e.data);
       });
 
       editor.ui.registry.addAutocompleter('specialchars_cardmenuitems', {
