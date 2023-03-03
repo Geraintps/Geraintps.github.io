@@ -71,7 +71,10 @@ $(document).ready(function () {
       //   alert(e.code);
       // });
       editor.on('input', async (e) => {
-        await delay(500);
+        if(e.data == "@") {
+          tinymce.activeEditor.execCommand('Delete');
+          tinymce.activeEditor.execCommand('InsertText', false, e.data);
+        }
         $('#output').html($('#output').html() + e.data);
       });
 
@@ -112,7 +115,7 @@ $(document).ready(function () {
   $("#btn").click(function () {
     var theContent = tinymce.activeEditor.getContent();
     $('#output').html(theContent);
-    // tinymce.activeEditor.execCommand('mceInsertContent', false, "some text");
+    tinymce.activeEditor.execCommand('Delete');
   });
 
 });
