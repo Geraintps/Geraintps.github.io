@@ -69,22 +69,22 @@ $(document).ready(function () {
 
       var lastChar = "";
 
-      editor.on('input', (e) => {
-        if(e.data == "@") {
-          lastChar = e.data;
-          tinymce.activeEditor.execCommand('Delete');
-          tinymce.activeEditor.execCommand('InsertText', false, e.data);
-        }
+      editor.on('input', async (e) => {
+        // if(e.data == "@") {
+        //   lastChar = e.data;
+        //   tinymce.activeEditor.execCommand('Delete');
+        //   tinymce.activeEditor.execCommand('InsertText', false, e.data);
+        // }
 
-        if(lastChar == "@" && e.data != " ") {
-          tinymce.activeEditor.execCommand('Delete');
-          tinymce.activeEditor.execCommand('InsertText', false, e.data + " ");
-          tinymce.activeEditor.execCommand('Delete');
-        }
+        // if(lastChar == "@" && e.data != " ") {
+        //   tinymce.activeEditor.execCommand('Delete');
+        //   tinymce.activeEditor.execCommand('InsertText', false, e.data);
+        // }
 
-        if(e.data == " ") {
-          lastChar = "";
-        }
+        // if(e.data == " ") {
+        //   lastChar = "";
+        // }
+        alert(e.data);
 
         $('#output').html($('#output').html() + e.data);
       });
