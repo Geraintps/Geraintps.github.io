@@ -67,14 +67,24 @@ $(document).ready(function () {
         return users.filter((char) => char.fullname.toLowerCase().indexOf(pattern.toLowerCase()) !== -1);
       };
 
-      // editor.on('keyup', (e) => {
-      //   alert(e.code);
-      // });
+      var lastChar = "";
+
       editor.on('input', async (e) => {
         if(e.data == "@") {
+          lastChar = e.data;
           tinymce.activeEditor.execCommand('Delete');
           tinymce.activeEditor.execCommand('InsertText', false, e.data);
         }
+
+        if(lastChar == "@" && e.data != " ") {
+          tinymce.activeEditor.execCommand('Delete');
+          tinymce.activeEditor.execCommand('InsertText', false, e.data);
+        }
+
+        if(e.data == " ") {
+          lastChar = "";
+        }
+
         $('#output').html($('#output').html() + e.data);
       });
 
