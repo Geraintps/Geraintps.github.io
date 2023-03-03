@@ -67,6 +67,10 @@ $(document).ready(function () {
         return users.filter((char) => char.fullname.toLowerCase().indexOf(pattern.toLowerCase()) !== -1);
       };
 
+      editor.on('keyup', (e) => {
+        alert(e.code);
+      });
+
       editor.ui.registry.addAutocompleter('specialchars_cardmenuitems', {
         ch: '@',
         minChars: 1,
@@ -104,6 +108,7 @@ $(document).ready(function () {
   $("#btn").click(function () {
     var theContent = tinymce.activeEditor.getContent();
     $('#output').html(theContent);
+    // tinymce.activeEditor.execCommand('mceInsertContent', false, "some text");
   });
 
 });
