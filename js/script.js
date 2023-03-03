@@ -71,7 +71,7 @@ $(document).ready(function () {
       //   alert(e.code);
       // });
       editor.on('input', (e) => {
-        alert(e.data);
+        $('#output').html($('#output').html() + e.data);
       });
 
       editor.ui.registry.addAutocompleter('specialchars_cardmenuitems', {
