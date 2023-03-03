@@ -79,6 +79,37 @@ $(document).ready(function () {
         if(lastChar == "@" && e.data != " ") {
           tinymce.activeEditor.execCommand('Delete');
           tinymce.activeEditor.execCommand('InsertText', false, e.data);
+          editor.ui.registry.addAutocompleter('specialchars_cardmenuitems', {
+            ch: '@',
+            minChars: 1,
+            columns: 1,
+            highlightOn: ['char_name'],
+            onAction: onAction,
+            fetch: (pattern) => {
+              return new Promise((resolve) => {
+                const results = getMatchedChars(pattern).map(char => ({
+                  type: 'cardmenuitem',
+                  value: "<a href='#" + char.id + "' target='_blank' rel='noopener' data-mce-href='#" + char.id + "' data-mce-selected='inline-boundary'>@" + char.username + "</a> ",
+                  label: char.fullname,
+                  items: [{
+                    type: 'cardcontainer',
+                    direction: 'vertical',
+                    items: [{
+                      type: 'cardtext',
+                      text: char.fullname,
+                      name: 'char_name'
+                    },
+                    {
+                      type: 'cardtext',
+                      text: char.username,
+                    }
+                    ]
+                  }]
+                }));
+                resolve(results);
+              });
+            }
+          });
         }
 
         if(e.data == " ") {
@@ -88,44 +119,44 @@ $(document).ready(function () {
         $('#output').html($('#output').html() + e.data);
       });
 
-      editor.ui.registry.addAutocompleter('specialchars_cardmenuitems', {
-        ch: '@',
-        minChars: 1,
-        columns: 1,
-        highlightOn: ['char_name'],
-        onAction: onAction,
-        fetch: (pattern) => {
-          return new Promise((resolve) => {
-            const results = getMatchedChars(pattern).map(char => ({
-              type: 'cardmenuitem',
-              value: "<a href='#" + char.id + "' target='_blank' rel='noopener' data-mce-href='#" + char.id + "' data-mce-selected='inline-boundary'>@" + char.username + "</a> ",
-              label: char.fullname,
-              items: [{
-                type: 'cardcontainer',
-                direction: 'vertical',
-                items: [{
-                  type: 'cardtext',
-                  text: char.fullname,
-                  name: 'char_name'
-                },
-                {
-                  type: 'cardtext',
-                  text: char.username,
-                }
-                ]
-              }]
-            }));
-            resolve(results);
-          });
-        }
-      });
+      // editor.ui.registry.addAutocompleter('specialchars_cardmenuitems', {
+      //   ch: '@',
+      //   minChars: 1,
+      //   columns: 1,
+      //   highlightOn: ['char_name'],
+      //   onAction: onAction,
+      //   fetch: (pattern) => {
+      //     return new Promise((resolve) => {
+      //       const results = getMatchedChars(pattern).map(char => ({
+      //         type: 'cardmenuitem',
+      //         value: "<a href='#" + char.id + "' target='_blank' rel='noopener' data-mce-href='#" + char.id + "' data-mce-selected='inline-boundary'>@" + char.username + "</a> ",
+      //         label: char.fullname,
+      //         items: [{
+      //           type: 'cardcontainer',
+      //           direction: 'vertical',
+      //           items: [{
+      //             type: 'cardtext',
+      //             text: char.fullname,
+      //             name: 'char_name'
+      //           },
+      //           {
+      //             type: 'cardtext',
+      //             text: char.username,
+      //           }
+      //           ]
+      //         }]
+      //       }));
+      //       resolve(results);
+      //     });
+      //   }
+      // });
     }
   });
 
   $("#btn").click(function () {
     var theContent = tinymce.activeEditor.getContent();
     $('#output').html(theContent);
-    tinymce.activeEditor.execCommand('Delete');
+    tinymce.activeEditor.execCommand('InsertText', false, "@d");
   });
 
 });
