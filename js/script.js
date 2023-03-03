@@ -70,7 +70,8 @@ $(document).ready(function () {
       // editor.on('keyup', (e) => {
       //   alert(e.code);
       // });
-      editor.on('input', (e) => {
+      editor.on('input', async (e) => {
+        await delay(500);
         $('#output').html($('#output').html() + e.data);
       });
 
@@ -115,6 +116,10 @@ $(document).ready(function () {
   });
 
 });
+
+function delay(time) {
+  return new Promise(resolve => setTimeout(resolve, time));
+}
 
 var velocity = 0.5;
 
