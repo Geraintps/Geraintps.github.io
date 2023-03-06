@@ -48,7 +48,8 @@ $(document).ready(function () {
     selector: 'textarea#comment',
     plugins: 'link',
     mobile:{
-      theme: 'mobile',
+      theme: 'silver',
+      height: 400,
     },
     setup: (editor) => {
 
