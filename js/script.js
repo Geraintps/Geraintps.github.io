@@ -47,6 +47,9 @@ $(document).ready(function () {
   tinymce.init({
     selector: 'textarea#comment',
     plugins: 'link',
+    mobile:{
+      theme: 'mobile',
+    },
     setup: (editor) => {
 
       /* Fix for backspacing into links/tags */
