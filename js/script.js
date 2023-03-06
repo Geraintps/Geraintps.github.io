@@ -51,11 +51,10 @@ $(document).ready(function () {
 
       /* Fix for backspacing into links/tags */
       editor.on('NodeChange', function (e) {
-        // if (e.element.localName == 'a' && e.selectionChange == true && !editor.selection.getNode().nextSibling) {
-        //   editor.selection.getNode().after(" ");
-        //   editor.selection.select(editor.selection.getNode().nextSibling);
-        // }
-        // alert("Changed");
+        if (e.element.localName == 'a' && e.selectionChange == true && !editor.selection.getNode().nextSibling) {
+          editor.selection.getNode().after(" ");
+          editor.selection.select(editor.selection.getNode().nextSibling);
+        }
       });
 
       const onAction = (autocompleteApi, rng, value) => {
@@ -71,30 +70,13 @@ $(document).ready(function () {
       var lastChar = "";
 
       editor.on('input', async (e) => {
-        tinymce.activeEditor.execCommand('InsertText', false, " ");
-        tinymce.activeEditor.execCommand('Delete');
-        // if(e.data == ":") {
-        //   lastChar = e.data;
-        //   tinymce.activeEditor.execCommand('Delete');
-        //   tinymce.activeEditor.execCommand('InsertText', false, "@");
-        // }
-
-        // if(lastChar == "@" && e.data != " ") {
-        //   tinymce.activeEditor.execCommand('Delete');
-        //   tinymce.activeEditor.execCommand('InsertText', false, e.data);
-        // }
-
-        // if(e.data == " ") {
-        //   lastChar = "";
-        // }
+        // tinymce.activeEditor.execCommand('InsertText', false, " ");
+        // tinymce.activeEditor.execCommand('Delete');
         $('#output').html(tinymce.activeEditor.getContent());
-        // if(e.data != "null" && e.data) {
-        //   $('#output').html($('#output').html() + e.data);
-        // }
       });
 
       editor.ui.registry.addAutocompleter('specialchars_cardmenuitems', {
-        ch: '@',
+        ch: '-',
         minChars: 1,
         columns: 1,
         highlightOn: ['char_name'],
