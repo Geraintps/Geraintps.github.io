@@ -74,11 +74,11 @@ $(document).ready(function () {
       var lastChar = "";
 
       editor.on('input', async (e) => {
-        if(e.data == "@") {
-          lastChar = e.data;
-          tinymce.activeEditor.execCommand('Delete');
-          tinymce.activeEditor.execCommand('InsertText', false, e.data);
-        }
+        // if(e.data == ":") {
+        //   lastChar = e.data;
+        //   tinymce.activeEditor.execCommand('Delete');
+        //   tinymce.activeEditor.execCommand('InsertText', false, "@");
+        // }
 
         // if(lastChar == "@" && e.data != " ") {
         //   tinymce.activeEditor.execCommand('Delete');
@@ -94,7 +94,7 @@ $(document).ready(function () {
       });
 
       editor.ui.registry.addAutocompleter('specialchars_cardmenuitems', {
-        ch: '@',
+        ch: ':',
         minChars: 1,
         columns: 1,
         highlightOn: ['char_name'],
