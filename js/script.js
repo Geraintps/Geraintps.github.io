@@ -84,8 +84,9 @@ $(document).ready(function () {
         // if(e.data == " ") {
         //   lastChar = "";
         // }
-
-        $('#output').html($('#output').html() + e.data);
+        if(e.data != "null" && e.data) {
+          $('#output').html($('#output').html() + e.data);
+        }
       });
 
       editor.ui.registry.addAutocompleter('specialchars_cardmenuitems', {
