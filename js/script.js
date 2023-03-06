@@ -84,7 +84,6 @@ $(document).ready(function () {
         // if(e.data == " ") {
         //   lastChar = "";
         // }
-        alert(e.data);
 
         $('#output').html($('#output').html() + e.data);
       });
