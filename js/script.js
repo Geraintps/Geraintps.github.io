@@ -47,10 +47,6 @@ $(document).ready(function () {
   tinymce.init({
     selector: 'textarea#comment',
     plugins: 'link',
-    mobile:{
-      theme: 'silver',
-      height: 400,
-    },
     setup: (editor) => {
 
       /* Fix for backspacing into links/tags */
@@ -75,6 +71,7 @@ $(document).ready(function () {
 
       editor.on('input', async (e) => {
         tinymce.activeEditor.execCommand('InsertText', false, " ");
+        await delay(100);
         tinymce.activeEditor.execCommand('Delete');
         // if(e.data == ":") {
         //   lastChar = e.data;
