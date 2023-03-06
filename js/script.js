@@ -51,10 +51,11 @@ $(document).ready(function () {
 
       /* Fix for backspacing into links/tags */
       editor.on('NodeChange', function (e) {
-        if (e.element.localName == 'a' && e.selectionChange == true && !editor.selection.getNode().nextSibling) {
-          editor.selection.getNode().after(" ");
-          editor.selection.select(editor.selection.getNode().nextSibling);
-        }
+        // if (e.element.localName == 'a' && e.selectionChange == true && !editor.selection.getNode().nextSibling) {
+        //   editor.selection.getNode().after(" ");
+        //   editor.selection.select(editor.selection.getNode().nextSibling);
+        // }
+        // alert("Changed");
       });
 
       const onAction = (autocompleteApi, rng, value) => {
@@ -71,7 +72,6 @@ $(document).ready(function () {
 
       editor.on('input', async (e) => {
         tinymce.activeEditor.execCommand('InsertText', false, " ");
-        await delay(100);
         tinymce.activeEditor.execCommand('Delete');
         // if(e.data == ":") {
         //   lastChar = e.data;
