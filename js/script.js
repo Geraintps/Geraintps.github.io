@@ -94,7 +94,7 @@ $(document).ready(function () {
       });
 
       editor.ui.registry.addAutocompleter('specialchars_cardmenuitems', {
-        ch: ':',
+        ch: '@',
         minChars: 1,
         columns: 1,
         highlightOn: ['char_name'],
@@ -130,7 +130,7 @@ $(document).ready(function () {
   $("#btn").click(function () {
     var theContent = tinymce.activeEditor.getContent();
     $('#output').html(theContent);
-    tinymce.activeEditor.execCommand('mceInsertContent', false, "@d");
+    tinymce.activeEditor.execCommand('mceInsertContent', false, "@");
   });
 
 });
