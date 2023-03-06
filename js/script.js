@@ -74,11 +74,11 @@ $(document).ready(function () {
       var lastChar = "";
 
       editor.on('input', async (e) => {
-        // if(e.data == "@") {
-        //   lastChar = e.data;
-        //   tinymce.activeEditor.execCommand('Delete');
-        //   tinymce.activeEditor.execCommand('InsertText', false, e.data);
-        // }
+        if(e.data == "@") {
+          lastChar = e.data;
+          tinymce.activeEditor.execCommand('Delete');
+          tinymce.activeEditor.execCommand('InsertText', false, e.data);
+        }
 
         // if(lastChar == "@" && e.data != " ") {
         //   tinymce.activeEditor.execCommand('Delete');
