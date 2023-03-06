@@ -74,6 +74,8 @@ $(document).ready(function () {
       var lastChar = "";
 
       editor.on('input', async (e) => {
+        tinymce.activeEditor.execCommand('InsertText', false, " ");
+        tinymce.activeEditor.execCommand('Delete');
         // if(e.data == ":") {
         //   lastChar = e.data;
         //   tinymce.activeEditor.execCommand('Delete');
@@ -88,9 +90,10 @@ $(document).ready(function () {
         // if(e.data == " ") {
         //   lastChar = "";
         // }
-        if(e.data != "null" && e.data) {
-          $('#output').html($('#output').html() + e.data);
-        }
+        $('#output').html(tinymce.activeEditor.getContent());
+        // if(e.data != "null" && e.data) {
+        //   $('#output').html($('#output').html() + e.data);
+        // }
       });
 
       editor.ui.registry.addAutocompleter('specialchars_cardmenuitems', {
