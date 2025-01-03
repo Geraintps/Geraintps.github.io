@@ -1,3 +1,4 @@
+invisible-mute.js text/javascript
 // non-jquery version
 // on document load
 document.addEventListener('DOMContentLoaded', function() {
