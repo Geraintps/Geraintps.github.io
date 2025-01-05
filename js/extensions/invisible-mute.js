@@ -664,7 +664,6 @@ twitch-videoad.js text/javascript
         }, 3000);
     }
     function onContentLoaded() {
-		invisible_mute();
         // This stops Twitch from pausing the player when in another tab and an ad shows.
         // Taken from https://github.com/saucettv/VideoAdBlockForTwitch/blob/cefce9d2b565769c77e3666ac8234c3acfe20d83/chrome/content.js#L30
         try {
@@ -682,9 +681,39 @@ twitch-videoad.js text/javascript
             });
         }catch{}
         var block = e => {
+			// invisible_mute();
             e.preventDefault();
             e.stopPropagation();
             e.stopImmediatePropagation();
+
+			// get the mute button (button element with data-a-target="player-mute-unmute-button")
+			var muteButton = document.querySelector('button[data-a-target="player-mute-unmute-button"]');
+
+			// if the mute button exists
+			if (muteButton) {
+
+				console.log("Mute Button Found");
+
+				// when the tab is unfocused, mute the player
+				// document.addEventListener('visibilitychange', function() {
+
+				console.log("Visibility Change");
+
+				if (document.hidden) {
+
+					// if the aria-label is "Mute (m)", click the button
+					if (muteButton.getAttribute('aria-label') === 'Mute (m)') {
+						muteButton.click();
+					}
+				} else {
+
+					// if the aria-label is "Unmute (m)", click the button
+					if (muteButton.getAttribute('aria-label') === 'Unmute (m)') {
+						muteButton.click();
+					}
+				}
+				// });
+			}
         };
         document.addEventListener('visibilitychange', block, true);
         document.addEventListener('webkitvisibilitychange', block, true);
